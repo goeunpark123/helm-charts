@@ -5,9 +5,8 @@
 replicaCount: 2
 
 image:
-  repository: 4jochamchi/yaguroute-app
+  repository: 4jochamchi/yaguroute-app:1723898926
   pullPolicy: IfNotPresent
-  tag: "1723898926"
   # Overrides the image tag whose default is the chart appVersion.
 
 imagePullSecrets: []
