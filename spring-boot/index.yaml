@@ -9,6 +9,6 @@ entries:
     name: spring-boot
     type: application
     urls:
-    - spring-boot-0.1.0.tgz
+    - https://goeunpark123.github.io/helm-charts/spring-boot/spring-boot-0.1.0.tgz
     version: 0.1.0
 generated: "2024-08-17T18:35:59.7292536+09:00"
