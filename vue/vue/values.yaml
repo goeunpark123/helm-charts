@@ -1,11 +1,11 @@
-# Default values for spring-boot.
+# Default values for vue.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
-  repository: 4jochamchi/yaguroute-app:1723898926
+  repository: 4jochamchi/yaguroute-front-app:1723904676
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
 
@@ -40,19 +40,18 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 5137
 
 ingress:
-  enabled: false
+  enabled: true
   className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: chart-example.local
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -94,13 +93,4 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity:
-  nodeAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - ip-10-0-23-195.ap-northeast-2.compute.internal
-                - ip-10-0-13-216.ap-northeast-2.compute.internal
+affinity: {}
