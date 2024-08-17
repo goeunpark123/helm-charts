@@ -78,6 +78,7 @@ readinessProbe:
   httpGet:
     path: /
     port: http
+  initialDelaySeconds: 30
 
 autoscaling:
   enabled: false
