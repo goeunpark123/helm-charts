@@ -95,4 +95,14 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: role
+              operator: In
+              values:
+                - front
+        topologyKey: kubernetes.io/hostname
+

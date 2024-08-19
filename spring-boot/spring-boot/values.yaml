@@ -96,12 +96,13 @@ nodeSelector: {}
 tolerations: []
 
 affinity:
-  nodeAffinity:
+  podAntiAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
+      - labelSelector:
+          matchExpressions:
+            - key: role
               operator: In
               values:
-                - ip-10-0-23-195.ap-northeast-2.compute.internal
-                - ip-10-0-13-216.ap-northeast-2.compute.internal
+                - back
+        topologyKey: kubernetes.io/hostname
+
